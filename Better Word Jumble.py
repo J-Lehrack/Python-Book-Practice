@@ -27,8 +27,16 @@ print(
 print("The jumble is:", jumble)
 
 guess = input("\nYour guess: ")
+
+if guess == correct:
+    print("That's it!  You guessed it!\n")
+    print("Your score is: 1")
+
 while guess != correct and guess != "":
     print("Sorry, that's not it.\n")
+
+    attempts += 1
+    score = attempts
 
     hint_prompt = input("Would you like a hint? ")
     if hint_prompt == "Yes":
@@ -38,11 +46,6 @@ while guess != correct and guess != "":
         print("I believe in you!")
 
     guess = input("Your guess: ")
-    attempts += 1
-    score = attempts
-
-if guess == correct:
-    print("That's it!  You guessed it!\n")
     print("Your score is:", score)
 
 print("Thanks for playing.")
