@@ -13,20 +13,18 @@ while user_guess != answer or comp_guess != answer:
         print("Lower")
     elif user_guess < answer:
         print("Higher")
-    else:
+    elif user_guess == answer:
         print("Congratulations Player 1!!")
-        break
 
-    if comp_guess > answer:
+    elif comp_guess > answer:
         print("Lower")
         a = comp_guess
         comp_guess = random.randint(1,a)
     elif comp_guess < answer:
         print("Higher")
         comp_guess = random.randint(comp_guess,a)
-    else:
+    elif comp_guess == answer:
         print("Ouch, maybe next time Player 1")
-        break
 
     user_guess = int(input("Guess your number: "))
     print("Computer guess:", comp_guess)

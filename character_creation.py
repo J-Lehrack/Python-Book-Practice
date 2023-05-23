@@ -1,4 +1,5 @@
-# A fantasy character creation program, distributing points to 4 separate resources
+# A fantasy character creation program
+# where you distribute points to 4 separate resources
 
 attributes = {"Strength": 0,
                 "HP": 0,
