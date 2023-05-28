@@ -6,10 +6,14 @@ import random
 
 class Critter(object):
     """A virtual pet"""
-    def __init__(self, name, hunger=0, boredom=0):
+    def __init__(self, name, hunger=None, boredom=None):
         self.name = name
-        self.hunger = hunger
-        self.boredom = boredom
+        if hunger is None:
+            hunger = random.randint(0, 10)
+            self.hunger = hunger
+        if boredom is None:
+            boredom = random.randint(0, 10)
+            self.boredom = boredom
 
     def __pass_time(self):
         self.hunger += 1
@@ -54,7 +58,9 @@ def main():
     crit_name1 = input("What do you want to name critter 1?: ")
     crit_name2 = input("What do you want to name critter 2?: ")
     crit_name3 = input("What do you want to name critter 3?: ")
-    crit = Critter([crit_name1, crit_name2, crit_name3])
+    crit1 = Critter(crit_name1)
+    crit2 = Critter(crit_name2)
+    crit3 = Critter(crit_name3)
 
     choice = None
     while choice != "0":
@@ -77,22 +83,32 @@ def main():
 
         # listen to your critter
         elif choice == "1":
-            crit.talk()
+            crit1.talk()
+            crit2.talk()
+            crit3.talk()
 
         # feed your critter
         elif choice == "2":
             food = int(input("How many bowls of food do you want to give?: "))
-            crit.eat(food)
+            crit1.eat(food)
+            crit2.eat(food)
+            crit3.eat(food)
 
         # play with your critter
         elif choice == "3":
             hour = int(input("How many hours do you want to play?: "))
-            crit.play(hour)
+            crit1.play(hour)
+            crit2.play(hour)
+            crit3.play(hour)
 
         # hidden choice to check attributes
         elif choice == "4":
-            print(crit.name, "has the following attributes:")
-            print(crit.__str__())
+            print(crit1.name, "has the following attributes:")
+            print(crit1.__str__())
+            print(crit2.name, "has the following attributes:")
+            print(crit2.__str__())
+            print(crit3.name, "has the following attributes:")
+            print(crit3.__str__())
 
         # some unknown choice
         else:
